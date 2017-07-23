@@ -1,5 +1,8 @@
 <ion-header>
   <ion-navbar color="jacktools">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       JackTools.Net
     </ion-title>
@@ -7,47 +10,44 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-
-      <ion-card-header>
-        Verantwortlich als Betreiber dieser Seite im Sinne von § 5 TMG ist die
-      </ion-card-header>
-
-      <ion-card-content>
-          <p>JackTools.Net UG (haftungsbeschränkt)</p>
-          <p>Paul-Rauscher-Straße 20 a<br>
-          85055 Ingolstadt</p>
-          <p>Telefon:<br>
-          +49 (0) 15 75 / 17 53 57 7</p>
-          <p>Email:<br>
-          <a href="mailto:office@jacktools.net">office@jacktools.net</a></p>
-          <p>Geschäftsführer:<br>
-          Wagner Christian<br>
-          Dipl.-Inform. (FH)</p>
-          <p>Eingetragen beim Handelsregister:<br>
-          Ingolstadt</p>
-          <p>Registernummer:<br>
-          5933</p>
-          <p>Umsatzsteuer-ID:<br>
-          DE277133529</p>
-    </ion-card-content>
-
-  </ion-card>
-
-  <ion-card>
-
-    <ion-card-header>
-      Verantwortlich für journalistisch-redaktionelle Inhalte i. S. d. § 55 II RStV:
-    </ion-card-header>
-
-    <ion-card-content>
-      <p>Wagner Christian<br>
-      Dipl.-Inform. (FH)</p>
-      <p>Paul-Rauscher-Straße 20 a<br>
-      85055 Ingolstadt</p>
-      <p>Email:<br>
-      <a href="mailto:office@jacktools.net">office@jacktools.net</a></p>
-    </ion-card-content>
-
-  </ion-card>
+  <ion-split-pane when="(min-width: 800px)" (ionChange)="splitPaneChange()">
+    <ion-menu id="mainmenu" side="left" type="push" [content]="content">
+      <!--ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header-->
+    <ion-content class="menu-gradient">
+      <div class="spacer" style="width: 254px; height: 10px;"></div>
+      <div class="category-image">
+        <img src="assets/img/jacktoolsnet/logo.png" style="display: block; width: 60%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <p style="color: rgb(255, 255, 255); font-weight: 200; text-align: center;">UG (haftungsbeschränkt)</p>
+      <div class="spacer" style="width: 254px; height: 5px;"></div>
+      <ion-list>
+        <!--button ion-item ion-item (click)="setCategory('submenu')">
+          Submenu (left)
+        </button-->
+        <button ion-item class="menu-item" (click)="setCategory('impressum')">
+          Impressum
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-menu id="submenu" side="left" type="push" [content]="content">
+    <ion-header>
+      <!--ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar-->
+  </ion-header>
+  <ion-content class="menu-gradient">
+    <ion-list>
+      <button ion-item class="menu-item" (click)="setCategory('mainmenu')">
+        Back
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav id="nav" main #content [root]="rootPage"></ion-nav>
+</ion-split-pane>
 </ion-content>
