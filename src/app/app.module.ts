@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MainContentPage } from '../pages/main-content/main-content';
+import { ShowImagePage } from '../pages/show-image/show-image';
 import { ImpressumPage } from '../pages/impressum/impressum';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { ImpressumPage } from '../pages/impressum/impressum';
     MyApp,
     HomePage,
     MainContentPage,
+    ShowImagePage,
     ImpressumPage
   ],
   imports: [
@@ -25,6 +27,7 @@ import { ImpressumPage } from '../pages/impressum/impressum';
     MyApp,
     HomePage,
     MainContentPage,
+    ShowImagePage,
     ImpressumPage
   ],
   providers: [

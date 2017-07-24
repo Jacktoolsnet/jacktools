@@ -14,6 +14,9 @@ $font-path: "../assets/fonts";
 
 $background-color: ( #fff );
 $link-color: ( #7bac2f );
+ion-card-header {
+  background-color: #7bac2f;
+}
 
 
 // Named Color Variables
@@ -30,7 +33,8 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  jacktools:  #7bac2f
+  jacktools:  #7bac2f,
+  white:      #fff
 );
 
 
@@ -39,7 +43,7 @@ $colors: (
 // iOS only Sass variables can go here
 $card-ios-header-color: ( #fff );
 $background-ios-color: ( #fff );
-
+$toolbar-ios-button-color: ( #fff );
 
 // App Material Design Variables
 // --------------------------------------------------

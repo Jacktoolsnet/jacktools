@@ -12,7 +12,6 @@ export class HomePage {
 
   rootPage: any;
   category: any;
-  showHeader: boolean = true;
 
   constructor(public platform: Platform, public navCtrl: NavController, public menuCtrl: MenuController) {
 
@@ -20,27 +19,9 @@ export class HomePage {
 
   ionViewDidLoad() {
     // Init Screen size
-    this.checkScreenSize();
     this.rootPage = MainContentPage;
   }
 
-  splitPaneChange() {
-    console.log("ionChange");
-    if (this.showHeader == true ){
-      this.showHeader = false;
-    } else {
-      this.showHeader = true;
-    }
-    this.rootPage = MainContentPage;
-  }
-
-  checkScreenSize(){
-    if (this.platform.width() <= 800){
-      this.showHeader = true;
-    } else {
-      this.showHeader = false;
-    }
-  }
 
   setCategory(category) {
     switch (category) {
