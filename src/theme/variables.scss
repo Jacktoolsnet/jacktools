@@ -12,7 +12,8 @@ $font-path: "../assets/fonts";
 // To view all the possible Ionic variables, see:
 // http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
 
-$link-color:( #7bac2f );
+$background-color: ( #fff );
+$link-color: ( #7bac2f );
 
 
 // Named Color Variables
@@ -36,22 +37,22 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-
-
+$card-ios-header-color: ( #fff );
+$background-ios-color: ( #fff );
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
-
-
+$card-md-header-color: ( #fff );
+$background-md-color: ( #fff );
 
 
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here
-
-
+$card-wp-header-color: ( #fff );
+$background-wp-color: ( #fff );
 
 
 // App Theme
