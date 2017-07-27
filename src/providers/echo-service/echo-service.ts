@@ -29,6 +29,7 @@ export class EchoServiceProvider {
   }
 
   getEchoPostFORM(echo: string): Promise<string> {
+  echo = encodeURIComponent(echo);
   return  this.http
     .post(this.echoUrl, "echo=" + echo, {headers: this.headersFORM}) // use JSON.stringify({param1: value1, param2: value2, ...}) for more than one parameter
     .toPromise()
@@ -37,6 +38,7 @@ export class EchoServiceProvider {
   }
 
   getEchoGet(echo: string): Promise<string> {
+  echo = encodeURIComponent(echo);
   return  this.http
     .get(this.echoUrl + "?echo=" + echo) // use JSON.stringify({param1: value1, param2: value2, ...}) for more than one parameter
     .toPromise()

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { EchoServiceProvider } from '../../providers/echo-service/echo-service'
@@ -21,7 +21,9 @@ export class EchoPage {
   echoResult: string = "";
   requestType: string = "get";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public inAppBrowser: InAppBrowser, public toastCtrl: ToastController, public echoServiceProvider: EchoServiceProvider) {
+  public loader: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public inAppBrowser: InAppBrowser, public toastCtrl: ToastController, public loadingCtrl: LoadingController, public echoServiceProvider: EchoServiceProvider) {
   }
 
   okResult: string = '{"status":"ok", "echo":"Hallo", "requesttype":"GET", "format":"urlencoded"}';
@@ -33,6 +35,10 @@ export class EchoPage {
 
   sendEcho() {
     console.log('sendEcho ->' + this.echoValue)
+    this.loader = this.loadingCtrl.create({
+      content: "Sende Anfrage..."
+    });
+    this.loader.present();
     switch (this.requestType){
       case 'get':
         this.echoServiceProvider.getEchoGet(this.echoValue)
@@ -54,16 +60,19 @@ export class EchoPage {
 
   showEchoResult(result: string) {
     console.log('showEchoToast ->' + result);
+    this.loader.dismiss();
     this.echoResult = result;
   }
 
   showErrorToast(error: any) {
     console.log('showErrorToast ->' + error);
+    this.loader.dismiss();
     let toast = this.toastCtrl.create({
       message: "Ups! Da ist etwas schief gelaufen. Das hätte nicht passieren dürfen! " + error,
       duration: 3000
     });
     toast.present();
+    this.echoResult = error;
   }
 
   goToUrl(url: string){
